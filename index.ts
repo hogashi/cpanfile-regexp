@@ -33,7 +33,7 @@ const moduleStatements = r(
   moduleOrmoduleNameVersion,
   el
 );
-const comment = r(sp, /#[^\n]+\n/);
+const comment = r(sp, /#[^\n]*\n/);
 const sub = r(
   sp,
   /sub\s*\{/,
