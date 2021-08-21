@@ -37,9 +37,8 @@ const comment = r(sp, /#[^\n]*\n/);
 const sub = r(
   sp,
   /sub\s*\{/,
-  rrepeat(r(sp, r(moduleStatements, or, comment), sp), '*'),
-  /\}/,
-  el
+  rrepeat(r(moduleStatements, or, comment), '*'),
+  /\}/
 );
 const on = r(sp, /on/, sp, phase, comma, sub, el);
 const cpanfileRegExp = new RegExp(
