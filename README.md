@@ -14,7 +14,8 @@ recommends 'Pod::Usage';
 on test => sub {
     requires 'Test::More', 0.88;
     requires 'File::pushd';
-};`
+};
+`;
 console.log(
   [...cpanfile.matchAll(cpanfileRegExp)].map(statement => statement.filter(fragment => fragment))
 );
@@ -29,10 +30,11 @@ console.log(
       '# https://github.com/miyagawa/cpanfile/blob/5e89c54bb388402db3a0bb61a44de875860df3d1/cpanfile\n',
     '\n' +
       '# https://github.com/miyagawa/cpanfile/blob/5e89c54bb388402db3a0bb61a44de875860df3d1/cpanfile\n',
-    '\n' +
-      '# https://github.com/miyagawa/cpanfile/blob/5e89c54bb388402db3a0bb61a44de875860df3d1/cpanfile\n'
+    '# https://github.com/miyagawa/cpanfile/blob/5e89c54bb388402db3a0bb61a44de875860df3d1/cpanfile\n',
+    '\n'
   ],
   [
+    "requires 'CPAN::Meta', 2.12091;\n",
     "requires 'CPAN::Meta', 2.12091;\n",
     "requires 'CPAN::Meta', 2.12091;\n",
     "requires 'CPAN::Meta', 2.12091;\n",
@@ -47,6 +49,7 @@ console.log(
     "requires 'CPAN::Meta::Prereqs', 2.12091;\n",
     "requires 'CPAN::Meta::Prereqs', 2.12091;\n",
     "requires 'CPAN::Meta::Prereqs', 2.12091;\n",
+    "requires 'CPAN::Meta::Prereqs', 2.12091;\n",
     "'CPAN::Meta::Prereqs', 2.12091",
     "'CPAN::Meta::Prereqs'",
     ', 2.12091',
@@ -58,11 +61,13 @@ console.log(
     "requires 'parent';\n\n",
     "requires 'parent';\n\n",
     "requires 'parent';\n\n",
+    "requires 'parent';\n\n",
     "'parent'",
     "'parent'",
     ';\n\n'
   ],
   [
+    "recommends 'Pod::Usage';\n\n",
     "recommends 'Pod::Usage';\n\n",
     "recommends 'Pod::Usage';\n\n",
     "recommends 'Pod::Usage';\n\n",
@@ -74,15 +79,19 @@ console.log(
     'on test => sub {\n' +
       "    requires 'Test::More', 0.88;\n" +
       "    requires 'File::pushd';\n" +
-      '};',
+      '};\n',
     'on test => sub {\n' +
       "    requires 'Test::More', 0.88;\n" +
       "    requires 'File::pushd';\n" +
-      '};',
+      '};\n',
     'on test => sub {\n' +
       "    requires 'Test::More', 0.88;\n" +
       "    requires 'File::pushd';\n" +
-      '};',
+      '};\n',
+    'on test => sub {\n' +
+      "    requires 'Test::More', 0.88;\n" +
+      "    requires 'File::pushd';\n" +
+      '};\n',
     'test ',
     '=> ',
     "sub {\n    requires 'Test::More', 0.88;\n    requires 'File::pushd';\n}",
@@ -91,7 +100,7 @@ console.log(
     "'File::pushd'",
     "'File::pushd'",
     ';\n',
-    ';'
+    ';\n'
   ]
 ]
 ```
