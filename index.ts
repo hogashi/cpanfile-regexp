@@ -38,7 +38,7 @@ const moduleStatements = rg(
   moduleOrmoduleNameVersion,
   el
 );
-const comment = /#[^\n]*(\n|$)/;
+const comment = /#[^\n]*(?:\n|$)/;
 const sub = r(
   /sub\s*\{/,
   rrepeat(r(sp, r(moduleStatements, or, comment)), '*'),
