@@ -18,7 +18,7 @@ on test => sub {
 `;
 ```
 
-```
+```js
 console.log(
   [...cpanfile.matchAll(new RegExp(r(moduleStatements, or, comment), 'g'))].map(statement => [...statement])
 );
@@ -61,7 +61,7 @@ console.log(
 
 ---
 
-```
+```js
 console.log(
   [...cpanfile.matchAll(cpanfileRegExp)].map(statement => statement.filter(fragment => fragment))
 );
