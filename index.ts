@@ -27,21 +27,19 @@ const version = r(versionNum, or, versionStr);
 const comma = r(sp, /(?:,|=>)/, sp);
 const moduleOrmoduleNameVersion = r(moduleName, rrepeat(r(comma, version), '?'));
 const moduleStatements = r(
-  sp,
   /(?:requires|author_requires|configureRequires|test_requires|conflicts|recommends)/,
   sp,
   moduleOrmoduleNameVersion,
   el
 );
-const comment = r(sp, /#[^\n]*\n/);
+const comment = /#[^\n]*(\n|$)/;
 const sub = r(
-  sp,
   /sub\s*\{/,
   rrepeat(r(moduleStatements, or, comment), '*'),
   /\}/
 );
-const on = r(sp, /on/, sp, phase, comma, sub, el);
+const on = r(/on/, sp, phase, comma, sub, el);
 const cpanfileRegExp = new RegExp(
-  r(moduleStatements, or, on, or, comment),
+  r(sp, r(moduleStatements, or, on, or, comment)),
   'g'
 );
