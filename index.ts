@@ -18,7 +18,7 @@ const or = /|/;
 const q = /['"]/;
 const nqs = /[^'"]+/;
 const sp = /\s*/;
-const el = r(sp, /;/, sp);
+const el = r(sp, /;/);
 const moduleName = r(nqs, or, q, nqs, q);
 const phase = r(nqs, or, q, nqs, q);
 const versionNum = /[0-9.]+/;
@@ -35,7 +35,7 @@ const moduleStatements = r(
 const comment = /#[^\n]*(\n|$)/;
 const sub = r(
   /sub\s*\{/,
-  rrepeat(r(sp, moduleStatements, or, comment), '*'),
+  rrepeat(r(sp, r(moduleStatements, or, comment)), '*'),
   /\s*\}/
 );
 const on = r(/on/, sp, phase, comma, sub, el);
