@@ -26,26 +26,12 @@ const versionStr = r(q, nqs, q);
 const version = r(versionNum, or, versionStr);
 const comma = r(sp, /(?:,|=>)/, sp);
 const moduleOrmoduleNameVersion = r(moduleName, rrepeat(r(comma, version), '?'));
-const makeModuleStatement = (name: string) =>
-  r(sp, new RegExp(name), sp, moduleOrmoduleNameVersion, el);
-const requires = makeModuleStatement('requires');
-const author_requires = makeModuleStatement('author_requires');
-const configureRequires = makeModuleStatement('configureRequires');
-const test_requires = makeModuleStatement('test_requires');
-const conflicts = makeModuleStatement('conflicts');
-const recommends = makeModuleStatement('recommends');
 const moduleStatements = r(
-  requires,
-  or,
-  author_requires,
-  or,
-  configureRequires,
-  or,
-  test_requires,
-  or,
-  conflicts,
-  or,
-  recommends
+  sp,
+  /(?:requires|author_requires|configureRequires|test_requires|conflicts|recommends)/,
+  sp,
+  moduleOrmoduleNameVersion,
+  el
 );
 const comment = r(sp, /#[^\n]+\n/);
 const sub = r(
