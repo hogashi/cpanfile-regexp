@@ -25,8 +25,7 @@ const versionNum = /[0-9.]+/;
 const versionStr = r(q, nqs, q);
 const version = r(versionNum, or, versionStr);
 const comma = r(sp, /(?:,|=>)/, sp);
-const moduleNameVersion = r(moduleName, comma, version);
-const moduleOrmoduleNameVersion = r(moduleName, or, moduleNameVersion);
+const moduleOrmoduleNameVersion = r(moduleName, rrepeat(r(comma, version), '?'));
 const makeModuleStatement = (name: string) =>
   r(sp, new RegExp(name), sp, moduleOrmoduleNameVersion, el);
 const requires = makeModuleStatement('requires');
