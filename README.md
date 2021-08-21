@@ -1,6 +1,10 @@
 # cpanfile-regexp
 
-cpanfile regexp in node
+cpanfile をパースする正規表現.js
+
+## example
+
+cpanfile を文字列で読み込む
 
 ```js
 const cpanfile = `
@@ -17,6 +21,8 @@ on test => sub {
 };
 `;
 ```
+
+index.js の好きな正規表現で matchAll などする
 
 ```js
 console.log(
