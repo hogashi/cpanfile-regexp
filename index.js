@@ -37,7 +37,7 @@ var version = r(versionNum, or, versionStr);
 var comma = r(sp, /(?:,|=>)/, sp);
 var moduleOrmoduleNameVersion = r(moduleName, rrepeat(r(comma, version), '?'));
 var moduleStatements = rg(/(?:requires|author_requires|configureRequires|test_requires|conflicts|recommends)/, sp, moduleOrmoduleNameVersion, el);
-var comment = /#[^\n]*(\n|$)/;
+var comment = /#[^\n]*(?:\n|$)/;
 var sub = r(/sub\s*\{/, rrepeat(r(sp, r(moduleStatements, or, comment)), '*'), /\s*\}/);
 var on = r(/on/, sp, phase, comma, sub, el);
 var cpanfileRegExp = new RegExp(r(sp, r(moduleStatements, or, on, or, comment)), 'g');
