@@ -1,0 +1,16 @@
+{
+  "name": "cpanfile-regexp",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "ssh://git@github.com/hogashi/cpanfile-regexp.git",
+  "author": "hogashi <hogextend@gmail.com>",
+  "scripts": {
+    "build": "tsc index.ts"
+  },
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "@types/node": "^16.7.1"
+  }
+}
