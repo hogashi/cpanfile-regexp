@@ -36,10 +36,9 @@ console.log(
     "requires 'CPAN::Meta', 2.12091;\n",
     "requires 'CPAN::Meta', 2.12091;\n",
     "requires 'CPAN::Meta', 2.12091;\n",
-    "requires 'CPAN::Meta', 2.12091;\n",
-    "'CPAN::Meta', 2.12091",
     "'CPAN::Meta', 2.12091",
     "'CPAN::Meta'",
+    ', 2.12091',
     ', ',
     '2.12091',
     ';\n'
@@ -48,10 +47,9 @@ console.log(
     "requires 'CPAN::Meta::Prereqs', 2.12091;\n",
     "requires 'CPAN::Meta::Prereqs', 2.12091;\n",
     "requires 'CPAN::Meta::Prereqs', 2.12091;\n",
-    "requires 'CPAN::Meta::Prereqs', 2.12091;\n",
-    "'CPAN::Meta::Prereqs', 2.12091",
     "'CPAN::Meta::Prereqs', 2.12091",
     "'CPAN::Meta::Prereqs'",
+    ', 2.12091',
     ', ',
     '2.12091',
     ';\n'
@@ -60,7 +58,6 @@ console.log(
     "requires 'parent';\n\n",
     "requires 'parent';\n\n",
     "requires 'parent';\n\n",
-    "requires 'parent';\n\n",
     "'parent'",
     "'parent'",
     ';\n\n'
@@ -69,32 +66,32 @@ console.log(
     "recommends 'Pod::Usage';\n\n",
     "recommends 'Pod::Usage';\n\n",
     "recommends 'Pod::Usage';\n\n",
-    "recommends 'Pod::Usage';\n\n",
     "'Pod::Usage'",
     "'Pod::Usage'",
     ';\n\n'
   ],
   [
-    "\n    requires 'Test::More', 0.88;\n    ",
-    "\n    requires 'Test::More', 0.88;\n    ",
-    "\n    requires 'Test::More', 0.88;\n    ",
-    "\n    requires 'Test::More', 0.88;\n    ",
-    "'Test::More', 0.88",
-    "'Test::More', 0.88",
-    "'Test::More'",
-    ', ',
-    '0.88',
-    ';\n    '
-  ],
-  [
-    "requires 'File::pushd';\n",
-    "requires 'File::pushd';\n",
+    'on test => sub {\n' +
+      "    requires 'Test::More', 0.88;\n" +
+      "    requires 'File::pushd';\n" +
+      '};',
+    'on test => sub {\n' +
+      "    requires 'Test::More', 0.88;\n" +
+      "    requires 'File::pushd';\n" +
+      '};',
+    'on test => sub {\n' +
+      "    requires 'Test::More', 0.88;\n" +
+      "    requires 'File::pushd';\n" +
+      '};',
+    'test ',
+    '=> ',
+    "sub {\n    requires 'Test::More', 0.88;\n    requires 'File::pushd';\n}",
     "requires 'File::pushd';\n",
     "requires 'File::pushd';\n",
     "'File::pushd'",
     "'File::pushd'",
-    ';\n'
+    ';\n',
+    ';'
   ]
 ]
 ```
-
